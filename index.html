@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(to left, rgb(33, 31, 31), grey, white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .container {
+            background: linear-gradient(to left, rgb(30, 29, 29), grey, white, rgb(198, 196, 196));
+            width: 480px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px grey;
+            padding: 15px;
+            height: 450px;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: black;
+        }
+
+        .form {
+            border: 6px double rgb(46, 46, 46);
+            padding: 10px;
+            border-radius: 20px;
+            background-color: grey;
+            height: 340px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"] {
+            width: 100%;
+            padding: 6px 30px 6px 6px; /* right padding for eye icon space */
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        /* Eye icon inside password input */
+        .password-container {
+            position: relative;
+        }
+
+        .password-container i {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: grey;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(46, 46, 46);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: black;
+            font-size: larger;
+        }
+
+        .container:hover{
+            box-shadow: 0 0 30px white;
+        }
+        .form:hover{
+            box-shadow: 0 0 30px white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <div class="form">
+            <form id="cont" action="welcome.html" method="GET">
+                <table>
+                    <tr>
+                        <td><i class="fa-solid fa-user fa-fade" style="color: #0d0d0d;"></i><label
+                                for="name">First Name:</label></td>
+                        <td><input type="text" id="name" name="fname" required></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-house-user fa-fade" style="color: #050505;"></i><label
+                                for="lname">Address :</label></td>
+                        <td><input type="text" id="lname" name="lname"></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-envelope fa-fade" style="color: #000000;"></i><label
+                                for="em">Email:</label></td>
+                        <td><input type="email" id="em" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-lock fa-flip" style="color: #000000;"></i><label
+                                for="ps">Password:</label></td>
+                        <td class="password-container">
+                            <input type="password" id="ps" name="password" required>
+                            <i class="fa-solid fa-eye" id="togglePassword"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-phone fa-shake" style="color: #000000;"></i><label
+                                for="n">Number:</label></td>
+                        <td><input type="number" id="n" name="num" required></td>
+                    </tr>
+                    <tr>
+                        <td>Skill:</td>
+                        <td>
+                            <input type="checkbox" id="n1" name="skill[]" value="HTML">
+                            <i class="fa-brands fa-html5 fa-fade" style="color: #000000;"></i><label
+                                for="n1">HTML</label>
+                            <input type="checkbox" id="n2" name="skill[]" value="CSS">
+                            <i class="fa-brands fa-css3 fa-fade" style="color: #000000;"></i><label
+                                for="n2">CSS</label>
+                            <input type="checkbox" id="n3" name="skill[]" value="JS">
+                            <i class="fa-brands fa-square-js fa-fade" style="color: #000000;"></i> <label
+                                for="n3">JavaScript</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gender:</td>
+                        <td>
+                            <input type="radio" id="n4" name="gender" value="Male">
+                            <i class="fa-solid fa-person" style="color: #000000;"></i><label for="n4">Male</label>
+                            <input type="radio" id="n5" name="gender" value="Female">
+                            <i class="fa-solid fa-person-dress" style="color: #000000;"></i><label
+                                for="n5">Female</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align:center;">
+                            <button type="submit" id="btn">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            // Password show/hide toggle inside input
+            $('#togglePassword').click(function () {
+                const passwordField = $('#ps');
+                const type = passwordField.attr('type') === 'password' ? 'text' : 'password';
+                passwordField.attr('type', type);
+                $(this).toggleClass('fa-eye fa-eye-slash'); // icon toggle
+            });
+
+            // Form submit function
+            $('#cont').submit(function (e) {
+                e.preventDefault(); // temporarily stop form submit
+
+                let n = $('#name').val();
+                let l = $('#lname').val();
+                let e_mail = $('#em').val();
+                let num = $('#n').val();
+                let skills = [];
+
+                $('input[name="skill[]"]:checked').each(function () {
+                    skills.push($(this).val());
+                });
+                let gender = $('input[name="gender"]:checked').val();
+
+                confirm(
+                    'Hello ' + n + ' ' +
+                    'Address ' + l + '\n' +
+                    'Email: ' + e_mail + '\n' +
+                    'Number: ' + num + '\n' +
+                    'Skills: ' + skills.join(', ') + '\n' +
+                    'Gender: ' + gender + '\n' +
+                    'Check your detail..'
+                );
+
+                this.submit(); // form submit kare aur welcome.html open ho
+            });
+        });
+    </script>
+</body>
+
+</html>
