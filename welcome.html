@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            text-align: center;
+        }
+        marquee h1 {
+            text-align: center;
+            font-size: 2rem;
+            color: #333;
+        }
+        
+        h2{
+            font-size: 50px;
+            color: #333;
+        }
+
+        img{
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="logo.gif" alt="no found">
+        <h2>Namaste Ji</h2>
+        <marquee behavior="alternate" direction="up" scrollamount="3">
+            <h1 id="welcomeMsg">Welcome! Your registration form was successfully Submitted 🎉</h1>
+        </marquee>
+    </div>
+
+    <script>
+        // URL parameter read
+        const params = new URLSearchParams(window.location.search);
+        const fname = params.get('fname') || '';
+
+        const welcomeMsg = document.getElementById('welcomeMsg');
+
+        if(fname){
+            welcomeMsg.textContent = `Welcome ${fname}! Your registration form was successfully Submitted 🎉`;
+        }
+    </script>
+</body>
+</html>
